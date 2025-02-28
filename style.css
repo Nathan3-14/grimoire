@@ -1,0 +1,59 @@
+body {
+    background-color: darkslategrey;
+}
+
+.radial-grid {
+    display: grid;
+    place-items: center;
+    position: relative;
+    width: 500px;
+    height: 500px;
+}
+  
+.radial-grid div {
+    width: 128px;
+    height: 128px;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.character {
+    width: 128px;
+    height: 128px;
+    position: relative;
+    display: inline-block;
+}
+
+.character > svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.character > .icon-background {
+    top: 0;
+    left: 0;
+    width: 128px;
+    height: 128px;
+    display: block;
+}
+
+.character > .icon {
+    position: absolute;
+    width: 128px;
+    height: 128px;
+    /* display: block; */
+}
+
+.character > .reminder {
+    background-image: url("https://github.com/bra1n/townsquare/blob/develop/src/assets/reminder.png")
+}
+
+textPath {
+    text-anchor: middle;
+    fill: white;
+    font-family: Papyrus,serif;
+}
+/* .token {
+    transform: translate(-50%, -50%) rotate(0deg) translateX(150px); 
+} */
