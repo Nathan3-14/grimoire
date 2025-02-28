@@ -7,67 +7,30 @@
     <title>Grimoire</title>
 </head>
 <body>
-    <style id="radial-grid-adjust">
-        .radial-grid div:nth-child(1) { transform: rotate(0deg) translate(200px) rotate(-0deg); }
-        .radial-grid div:nth-child(2) { transform: rotate(60deg) translate(200px) rotate(-60deg); }
-        .radial-grid div:nth-child(3) { transform: rotate(120deg) translate(200px) rotate(-120deg); }
-        .radial-grid div:nth-child(4) { transform: rotate(180deg) translate(200px) rotate(-180deg); }
-        .radial-grid div:nth-child(5) { transform: rotate(240deg) translate(200px) rotate(-240deg); }
-        .radial-grid div:nth-child(6) { transform: rotate(300deg) translate(200px) rotate(-300deg); }
-    </style> <!-- Adds 360/num of characters each time -->
-    <script></script>
-
-    <input type="number" id="player-count" placeholder="6"/>
-    <button id="create-grim">Create</button>
-    <div class="radial-grid">
-            <div class="character">
-                <img class="icon" src=https://wiki.bloodontheclocktower.com/images/5/5c/Icon_imp.png>
-                <img class="icon-background" src="https://github.com/bra1n/townsquare/blob/develop/src/assets/token.png?raw=true">
-                <svg width="128" height="128" viewbox="0 0 128 128">
-                <path id="character-name-path" d="M 20 84 A 50 50 0 0 0 108 84" pathLength="2" fill="none" stroke="none"/>
-                <text><textPath href="#character-name-path" startOffset="1" color="white">imp</textPath></text>
-                </svg>
-                <div class="reminders"></div>
-                <!-- <div class="reminder">
-                    <img src="https://wiki.bloodontheclocktower.com/images/4/4a/Icon_drunk.png" width="64" height="64">
-                    <p>Drunk</p>
-                </div> -->
-            </div>
-            <div class="character">
-            <img class="icon" src=https://wiki.bloodontheclocktower.com/images/b/b1/Icon_poisoner.png>
-            <svg width="128" height="128" viewbox="0 0 128 128">
-            <path id="character-name-path" d="M 20 84 A 50 50 0 0 0 108 84" pathLength="2" fill="none" stroke="none"/>
-            <text><textPath href="#character-name-path" startOffset="1" color="white">poisoner</textPath></text>
-            </svg>
-            </div>
-            <div class="character">
-            <img class="icon" src=https://wiki.bloodontheclocktower.com/images/4/4a/Icon_drunk.png>
-            <svg width="128" height="128" viewbox="0 0 128 128">
-            <path id="character-name-path" d="M 20 84 A 50 50 0 0 0 108 84" pathLength="2" fill="none" stroke="none"/>
-            <text><textPath href="#character-name-path" startOffset="1" color="white">drunk</textPath></text>
-            </svg>
-            </div>
-            <div class="character">
-            <img class="icon" src=https://wiki.bloodontheclocktower.com/images/a/ad/Icon_investigator.png>
-            <svg width="128" height="128" viewbox="0 0 128 128">
-            <path id="character-name-path" d="M 20 84 A 50 50 0 0 0 108 84" pathLength="2" fill="none" stroke="none"/>
-            <text><textPath href="#character-name-path" startOffset="1" color="white">investigator</textPath></text>
-            </svg>
-            </div>
-            <div class="character">
-            <img class="icon" src=https://wiki.bloodontheclocktower.com/images/e/ef/Icon_ravenkeeper.png>
-            <svg width="128" height="128" viewbox="0 0 128 128">
-            <path id="character-name-path" d="M 20 84 A 50 50 0 0 0 108 84" pathLength="2" fill="none" stroke="none"/>
-            <text><textPath href="#character-name-path" startOffset="1" color="white">ravenkeeper</textPath></text>
-            </svg>
-            </div>
-            <div class="character">
-            <img class="icon" src=https://wiki.bloodontheclocktower.com/images/d/d3/Icon_slayer.png>
-            <svg width="128" height="128" viewbox="0 0 128 128">
-            <path id="character-name-path" d="M 20 84 A 50 50 0 0 0 108 84" pathLength="2" fill="none" stroke="none"/>
-            <text><textPath href="#character-name-path" startOffset="1" color="white">slayer</textPath></text>
-            </svg>
-            </div>
+    <div id="radial-grid-adjust">
     </div>
+
+    <!-- <input type="number" id="player-count" placeholder="6"/>
+    <button id="create-grim">Create</button> -->
+    <ul class="radial">
+    </ul>
+
+    <template id="character-template">
+        <li class="character">
+            <ul class="reminders">
+                <li><button font-size="20px">Add Reminder</button></li>
+            </ul>
+            <div class="character-token">
+                <img class="icon-background" src="https://github.com/bra1n/townsquare/blob/develop/src/assets/token.png?raw=true">
+                <img class="icon" src={{url}}>
+                <svg width="128" height="128" viewbox="0 0 128 128">
+                    <path id="character-name-path" d="M 20 84 A 50 50 0 0 0 108 84" pathLength="2" fill="none" stroke="none"/>
+                    <text><textPath href="#character-name-path" startOffset="1" color="white">{{character}}</textPath></text>
+                </svg>
+            </div>
+        </li>
+    </template>
+
+    <script src="script.js"></script>
 </body>
 </html>

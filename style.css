@@ -2,50 +2,75 @@ body {
     background-color: darkslategrey;
 }
 
-.radial-grid {
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.radial {
     display: grid;
     place-items: center;
     position: relative;
-    width: 500px;
-    height: 500px;
-}
-  
-.radial-grid div {
-    width: 128px;
-    height: 128px;
-    position: absolute;
-    border-radius: 50%;
+    width: 50vw;
+    height: 50vh;
+    left: 20vw;
+    top: 20vh;
+    border: 1px solid #ccc;
 }
 
 .character {
     width: 128px;
     height: 128px;
-    position: relative;
+    position: absolute;
     display: inline-block;
 }
 
-.character > svg {
+.character > .character-token > svg {
     position: absolute;
     top: 0;
     left: 0;
 }
 
-.character > .icon-background {
+.character > .character-token {
+    scale: 1;
+    transition: scale 0.2s;
+    display: block;
+}
+.character > .character-token:hover {
+    scale: 1.2;
+}
+.character > .character-token > .icon-background {
+    position: absolute;
     top: 0;
     left: 0;
     width: 128px;
     height: 128px;
     display: block;
 }
-
-.character > .icon {
+.character > .character-token > .icon {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 128px;
     height: 128px;
-    /* display: block; */
+    display: block;
+    rotate: 0deg;
 }
 
-.character > .reminder {
+
+.character > .reminders {
+    /* rotate: 45deg; */
+    position: inherit;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightcoral;
+    border-radius: 50%;
+}
+.character > .reminders > .reminder {
     background-image: url("https://github.com/bra1n/townsquare/blob/develop/src/assets/reminder.png")
 }
 

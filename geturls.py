@@ -1,4 +1,6 @@
 import hashlib
+import json
+from typing import Dict
 
 characters = [
     "imp",
@@ -12,6 +14,7 @@ t_characters = [
     "drunk",
     "investigator", "ravenkeeper", "slayer"
 ]
+urls: Dict[str, str] = {}
 
 to_out = ""
 
@@ -23,25 +26,18 @@ for character in t_characters:
     url = f"https://wiki.bloodontheclocktower.com/images/{dir_path}/{filename}"
     img_tag = f"<div class=\"character\">\n<img class=\"icon\" src={url}>\n</div>"
 
-    img_tag = f"<div class=\"character\">\n<img class=\"icon\" src={url}>\n<svg width=\"128\" height=\"128\" viewbox=\"0 0 128 128\">\n<path id=\"character-name-path\" d=\"M 20 84 A 50 50 0 0 0 108 84\" pathLength=\"2\" fill=\"none\" stroke=\"none\"/>\n<text><textPath href=\"#character-name-path\" startOffset=\"1\" color=\"white\">{character.capitalize()}</textPath></text>\n</svg>\n</div>\n"
-
-    """
-    <div class="character">
-            <img class="icon" src=https://wiki.bloodontheclocktower.com/images/5/5c/Icon_imp.png>
-            <img class="icon-background" src="https://github.com/bra1n/townsquare/blob/develop/src/assets/token.png?raw=true">
-            <svg width="128" height="128" viewbox="0 0 128 128">
-            <path id="character-name-path" d="M 20 84 A 50 50 0 0 0 108 84" pathLength="2" fill="none" stroke="none"/>
-            <text><textPath href="#character-name-path" startOffset="1" color="white">imp</textPath></text>
-            </svg>
-            <div class="reminders"></div>
-            <!-- <div class="reminder">
-                <img src="https://wiki.bloodontheclocktower.com/images/4/4a/Icon_drunk.png" width="64" height="64">
-                <p>Drunk</p>
-            </div> -->
-            </div>
-    """
-
+    img_tag = open("character.html", "r").read().replace("{{url}}", url).replace("{{character}}", character.capitalize())
+    
     to_out += img_tag
+    urls[character] = url
     print(url)
     
+    """
+    <div class="reminder">
+        <img src="https://wiki.bloodontheclocktower.com/images/4/4a/Icon_drunk.png" width="64" height="64">
+        <p>Drunk</p>
+    </div>
+    """
+
 open("out.txt", "w").write(to_out)
+json.dump(urls, open("urls.json", "w"))
