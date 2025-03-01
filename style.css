@@ -7,7 +7,6 @@ ul {
     padding: 0;
     margin: 0;
 }
-
 .radial {
     display: grid;
     place-items: center;
@@ -57,6 +56,17 @@ ul {
     display: block;
     rotate: 0deg;
 }
+.character > .character-token > svg > text > textPath {
+    font-size: 20px;
+    fill: black;
+}
+
+.character > .player-button {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 
 .character > .reminders {
@@ -71,8 +81,32 @@ ul {
     border-radius: 50%;
 }
 .character > .reminders > .reminder {
-    background-image: url("https://github.com/bra1n/townsquare/blob/develop/src/assets/reminder.png")
+    /* background-image: url("https://github.com/bra1n/townsquare/blob/develop/src/assets/reminder.png"); */
+    width: 64px;
+    height: 64px;
 }
+.character > .reminders > .reminder > .delete-svg {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.2s linear;
+}
+
+.character > .reminders > .reminder:hover > .delete-svg {
+    visibility: visible;
+    opacity: 1;
+}
+
+.character > .reminders > .reminder > svg,
+.character > .reminders > .reminder > .reminder-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.character > .reminders > .reminder > svg > text > textPath {
+    fill: black;
+    font-size: 15px;
+}
+
 
 textPath {
     text-anchor: middle;
