@@ -14,17 +14,34 @@
     <button id="create-grim">Create</button> -->
     <ul class="radial">
     </ul>
-    <modal>
+    
 
-    </modal>
+    <dialog id="player-modification">
+        <form method="dialog">
+            <h2>{{current_player}}</h2>
+            <label for="reminder-input">Reminder ID:</label>
+            <input type="text" id="reminder-input" name="reminder-input">
+            <button onclick="dialog_add_reminder()">Add Reminder</button><br>
+
+            <label for="newname-input">New Name:</label>
+            <input type="text" id="newname-input" name="newname-input">
+            <button onclick="dialog_change_name()">Change Name</button><br>
+
+            <button onclick="dialog_change_alivedead()">Toggle Alive/Dead</button><br>
+            
+            <p color="red" id="dialog-extrainfo"></p>
+            <button type="button" id="close-dialog-button">Cancel</button>
+        </form>
+    </dialog>
+
 
     <template id="character-template">
         <li class="character">
             <ul class="reminders">
             </ul>
             <div class="character-token">
-                <!-- <img class="icon-background" src="https://github.com/bra1n/townsquare/blob/develop/src/assets/token.png?raw=true"> -->
-                <img class="icon-background" src="https://github.com/bra1n/townsquare/blob/develop/src/assets/life.png?raw=true">
+                <img class="icon-background dead" src="https://github.com/bra1n/townsquare/blob/develop/src/assets/token.png?raw=true" style="visibility: hidden;">
+                <img class="icon-background alive" src="https://github.com/bra1n/townsquare/blob/develop/src/assets/life.png?raw=true">
                 <img class="icon" src={{url}}>
                 <svg width="128" height="128">
                     <path id="character-name-path" d="M 20 40 A 50 50 0 1 0 108 40" pathLength="2" fill="none" stroke="none"/>

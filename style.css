@@ -77,7 +77,7 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: lightcoral;
+    /* background-color: lightcoral; */
     border-radius: 50%;
 }
 .character > .reminders > .reminder {

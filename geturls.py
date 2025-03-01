@@ -12,13 +12,13 @@ t_characters = [
     "imp",
     "poisoner",
     "drunk",
-    "investigator", "ravenkeeper", "slayer"
+    "investigator", "ravenkeeper", "slayer", "washerwoman", "fortuneteller"
 ]
 urls: Dict[str, str] = {}
 
 to_out = ""
 
-for character in t_characters:
+for character in characters:
     filename = f"Icon_{character}.png"
     result = hashlib.md5(filename.encode())
     dirs = result.hexdigest()[:2]
@@ -39,5 +39,5 @@ for character in t_characters:
     </div>
     """
 
-open("out.txt", "w").write(to_out)
+# open("out.txt", "w").write(to_out)
 json.dump(urls, open("urls.json", "w"))
