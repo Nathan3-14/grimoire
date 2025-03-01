@@ -16,6 +16,7 @@
 - Drunk - Drunk
 <br>
 - Poisoner - Poisoned
+<br>
 - Imp - Dead
 
 ## Bad Moon Rising
