@@ -42,29 +42,35 @@ var setup_reminders = () => {
       }
 }
 
-var setup = (character_list) => {
-    shuffle(character_list)
+var open_player_modification = (player_name) => {
+    player_modification_dialog.showModal()
+    player_modification_dialog.querySelector("dialog > form > h2").innerHTML = player_name
+}
+
+var setup = (player_list) => {
     const template = document.getElementById("character-template")
+    var default_image_url = "https://wiki.bloodontheclocktower.com/images/c/c9/Generic_fabled.png"
     var adjust_css_character = ".radial > li:nth-child({{n}}) { transform: rotate({{rotate}}deg) translate(300px) rotate(-{{rotate}}deg);}"
     var adjust_css_reminders = ".radial > li:nth-child({{n}}) > .reminders { transform: rotate({{rotate}}deg) translate(-200px)}" //was -200px
     var adjust_css_reminders_2 = ".radial > li:nth-child({{n}}) > .reminders > * {transform: rotate(-{{rotate}}deg);}"
     var rotate = 0
-    var rotate_diff = 360 / character_list.length
-    for (let n=1;n<=character_list.length;n++) {
-        var current_character = character_list[n-1]
-        console.log(`Setting up ${current_character}`)
+    var rotate_diff = 360 / player_list.length
+    // for (let n=1;n<=character_list.length;n++) {
+    for (let n=1;n<=player_list.length;n++) {
+        var current_player = player_list[n-1]
+        // var current_character = character_list[n-1]
+        console.log(`Setting up ${current_player}`)
         var clone = template.content.cloneNode(true)
-        clone.querySelector("li > .character-token > .icon").src = urls[current_character]
-        clone.querySelector("li > .character-token > svg > text > textPath").innerHTML = capitalize(current_character)
-        clone.querySelector("li").id = default_names[n-1]
-        clone.querySelector("li > .player-button").innerHTML = default_names[n-1]
-        clone.querySelector("li > .player-button").onclick = () => {
-            player_modification_dialog.showModal()
-            player_modification_dialog.querySelector("dialog > form > h2").innerHTML = default_names[n-1]
-        }
-        clone.querySelector("li > .player-ability-text").innerHTML = abilities[current_character]
+        clone.querySelector("li > .character-token > .icon").src = default_image_url
+        clone.querySelector("li > .character-token > svg > text > textPath").innerHTML = capitalize(current_player)
+        clone.querySelector("li").id = current_player
+        clone.querySelector("li > .player-button").innerHTML = current_player
+        console.log(current_player)
+        console.log(`open_player_modification(${current_player})`)
+        clone.querySelector("li > .player-button").setAttribute("onclick", `open_player_modification('${current_player}')`)
+        // clone.querySelector("li > .player-ability-text").innerHTML = abilities[current_character]
+        clone.querySelector("li > .player-ability-text").innerHTML = "No Character Selected"
 
-        
         document.getElementsByClassName("radial")[0].appendChild(clone)
         
         var style_adjust_character = document.createElement("style")
@@ -173,10 +179,6 @@ close_dialog_button.onclick = () => {
 }
 
 
-// TEST PURPOSES ONLY //
-// setup(["imp", "investigator", "poisoner", "drunk", "slayer", "ravenkeeper"])
-// player_modification_dialog.showModal()
 
 
-
-// setup(["imp", "investigator", "poisoner", "recluse", "slayer", "ravenkeeper", "fortune_teller", "washerwoman"])
+setup(["alice", "bob", "catherine", "dave", "elliot", "fiona", "gary", "harry"])
