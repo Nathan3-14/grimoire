@@ -24,6 +24,22 @@ const urls = {"imp": "https://wiki.bloodontheclocktower.com/images/5/5c/Icon_imp
 const reminders = {"imp.dead": "Dead", "drunk.drunk": "Drunk", "butler.master": "Master", "poisoner.poisoned": "Poisoned", "slayer.noability": "No Ability", "virgin.noability": "No Ability", "monk.protected": "Protected", "undertaker.executed": "Executed", "fortuneteller.redherring": "Red Herring", "investigator.wrong": "Wrong", "investigator.minion": "Minion", "librarian.wrong": "Wrong", "librarian.outsider": "Outsider", "washerwoman.wrong": "Wrong", "washerwoman.townsfolk": "Townsfolk"}
 
 var setup_reminders = () => {
+    const template = document.getElementById("reminder-button-template")
+    for (var reminder_id in reminders) {
+        console.log(reminder_id)
+        var reminder_img_name = reminder_id.split(".")[0]
+        console.log(reminder_img_name)
+        console.log(urls[reminder_img_name])
+        var reminder_text = reminders[reminder_id];
+
+        var clone = template.content.cloneNode(true)
+        clone.querySelector("button").setAttribute("onclick", `dialog_add_reminder("${reminder_id}")`)
+        clone.querySelector("button > .reminder-icon").src = urls[reminder_img_name]
+        clone.querySelector("button > svg > text > textPath").innerHTML = reminder_text
+        player_modification_dialog.querySelector("#dialog-reminder-button-list").appendChild(clone)
+
+      }
+
     //TODO DO SOMETHING HERE TODO//
 
 }
@@ -136,5 +152,5 @@ close_dialog_button.onclick = () => {
 
 // TEST PURPOSES ONLY //
 // setup(["imp", "investigator", "poisoner", "drunk", "slayer", "ravenkeeper"])
-setup(["imp", "investigator", "poisoner", "drunk", "slayer", "ravenkeeper", "fortuneteller", "washerwoman"])
+setup(["imp", "investigator", "poisoner", "recluse", "slayer", "ravenkeeper", "fortuneteller", "washerwoman"])
 // player_modification_dialog.showModal()
