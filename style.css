@@ -83,7 +83,8 @@ ul {
     border-radius: 50%;
     padding-left: 10px;
 }
-.character > .reminders > .reminder {
+
+.character > .reminders > .reminder{
     width: 50px;
     height: 50px;
     align-items: center;
@@ -106,6 +107,24 @@ ul {
     left: 0;
 }
 .character > .reminders > .reminder > svg > text > textPath {
+    fill: black;
+    font-size: 15px;
+}
+
+#player-modification > form > #dialog-reminder-button-list > .dialog-reminder-button {
+    position:relative;
+    width: 55px;
+    height: 55px;
+}
+#player-modification > form > #dialog-reminder-button-list > .dialog-reminder-button > .reminder-background,
+#player-modification > form > #dialog-reminder-button-list > .dialog-reminder-button > .reminder-icon,
+#player-modification > form > #dialog-reminder-button-list > .dialog-reminder-button > svg {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+}
+#player-modification > form > #dialog-reminder-button-list > .dialog-reminder-button > svg > text > textPath {
     fill: black;
     font-size: 15px;
 }

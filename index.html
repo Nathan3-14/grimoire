@@ -19,9 +19,20 @@
     <dialog id="player-modification">
         <form method="dialog">
             <h2>{{current_player}}</h2>
-            <label for="reminder-input">Reminder ID:</label>
+            <div id="dialog-reminder-button-list">
+                <button class="dialog-reminder-button" onclick="dialog_add_reminder('drunk.drunk')">
+                    <img class="reminder-background" src="https://github.com/bra1n/townsquare/blob/develop/src/assets/reminder.png?raw=true" width="50" height="50">
+                    <img class="reminder-icon" src="https://wiki.bloodontheclocktower.com/images/4/4a/Icon_drunk.png" width="50" height="50">
+                    
+                    <svg width="50" height="50" viewbox="0 0 50 50">
+                        <path id="reminder-name-path" d="M 7.8125 15.625 A 19.53125 19.53125 0 1 0 42.1875 15.625" pathLength="2" fill="none" stroke="none"/>
+                        <text><textPath href="#reminder-name-path" startOffset="1">Drunk</textPath></text>
+                    </svg>
+                </button>
+            </div>
+            <!-- <label for="reminder-input">Reminder ID:</label>
             <input type="text" id="reminder-input" name="reminder-input">
-            <button onclick="dialog_add_reminder()">Add Reminder</button><br>
+            <button onclick="dialog_add_reminder()">Add Reminder</button><br> -->
 
             <label for="newname-input">New Name:</label>
             <input type="text" id="newname-input" name="newname-input">
@@ -65,7 +76,19 @@
             </svg>
         </li>
     </template>
+    <template id="reminder-button-template">
+        <button class="dialog-reminder-button">
+            <img class="reminder-background" src="https://github.com/bra1n/townsquare/blob/develop/src/assets/reminder.png?raw=true" width="50" height="50">
+            <img class="reminder-icon" src="{{url}}" width="50" height="50">
+            
+            <svg width="50" height="50" viewbox="0 0 50 50">
+                <path id="reminder-name-path" d="M 7.8125 15.625 A 19.53125 19.53125 0 1 0 42.1875 15.625" pathLength="2" fill="none" stroke="none"/>
+                <text><textPath href="#reminder-name-path" startOffset="1" color="white">{{reminder_name}}</textPath></text>
+            </svg>
+        </button>
+    </template>
 
     <script src="script.js"></script>
+     <!-- <script src="test.js"></script> -->
 </body>
 </html>
