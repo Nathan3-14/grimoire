@@ -124,7 +124,7 @@ var dialog_change_name = () => {
 var dialog_change_alivedead = () => {
     var player_name = player_modification_dialog.querySelector("form > h2").innerHTML
     var player_token_backgrounds = document.getElementById(player_name).getElementsByClassName("icon-background")
-
+    
     if (player_token_backgrounds[0].style.visibility === 'hidden') {
         player_token_backgrounds[0].style.visibility = 'visible'; // Show the element
     } else {
@@ -135,10 +135,21 @@ var dialog_change_alivedead = () => {
     } else {
         player_token_backgrounds[1].style.visibility = 'hidden'; // Hide the element
     }
-
+    
     // player_token_backgrounds[0].hidden = !(player_token_backgrounds[0].hidden)
     // player_token_backgrounds[1].hidden = !(player_token_backgrounds[1].hidden)
     player_modification_dialog.querySelector("#dialog-extrainfo").innerHTML = ""
+}
+
+var dialog_mark_for_execution = () => {
+    document.querySelectorAll(".character").forEach(player => {
+        player.querySelector("i").style.visibility = "hidden"
+    });
+    // for (element in document.getElementsByClassName("character")) {
+    // }
+
+    var player_name = player_modification_dialog.querySelector("form > h2").innerHTML
+    document.getElementById(player_name).querySelector("i").style.visibility = "visible"
 }
 
 

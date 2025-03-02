@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/b6a2129284.js" crossorigin="anonymous"></script>
     <title>Grimoire</title>
 </head>
 <body>
@@ -39,6 +40,7 @@
             <button onclick="dialog_change_name()">Change Name</button><br>
 
             <button onclick="dialog_change_alivedead()">Toggle Alive/Dead</button><br>
+            <button onclick="dialog_mark_for_execution()">Mark for Execution</button><br>
             
             <p color="red" id="dialog-extrainfo"></p>
             <button type="button" id="close-dialog-button">Cancel</button>
@@ -58,6 +60,7 @@
                     <path id="character-name-path" d="M 20 40 A 50 50 0 1 0 108 40" pathLength="2" fill="none" stroke="none"/>
                     <text><textPath href="#character-name-path" startOffset="1">{{character}}</textPath></text>
                 </svg>
+                <i class="fa-solid fa-skull player-execution"></i>
             </div>
             <button class="player-button">{{player_name}}</button>
         </li>
