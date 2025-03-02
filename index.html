@@ -11,8 +11,13 @@
     <div id="radial-grid-adjust">
     </div>
 
-    <!-- <input type="number" id="player-count" placeholder="6"/>
-    <button id="create-grim">Create</button> -->
+    <div id="game-setup-inputs" style="color: white">
+        <label for="setup-new-character-input">New Character:</label>
+        <input type="text" id="setup-new-character-input">
+        <button id="setup-add-new-character-button" onclick="setup_add_character()">Add Character</button>
+        <p>Current Characters: {{charlist}}</p>
+        <button id="setup-create-grim" onclick="start_game()">Create</button>
+    </div>
     <ul class="radial">
     </ul>
     
@@ -39,6 +44,10 @@
             <input type="text" id="newname-input" name="newname-input">
             <button onclick="dialog_change_name()">Change Name</button><br>
 
+            <label for="newcharacter-input">New Character:</label>
+            <input type="text" id="newcharacter-input" name="newcharacter-input">
+            <button onclick="dialog_change_character()">Change Character</button><br>
+
             <button onclick="dialog_change_alivedead()">Toggle Alive/Dead</button><br>
             <button onclick="dialog_mark_for_execution()">Mark for Execution</button><br>
             
@@ -49,7 +58,7 @@
 
 
     <template id="character-template">
-        <li class="character">
+        <li class="player">
             <ul class="reminders">
             </ul>
             <div class="character-token">
@@ -93,6 +102,7 @@
     </template>
 
     <script src="script.js"></script>
+    <script src="script_setup.js"></script>
      <!-- <script src="test.js"></script> -->
 </body>
 </html>

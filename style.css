@@ -19,7 +19,7 @@ ul {
     border: 1px solid #ccc;
 }
 
-.character {
+.player {
     width: 128px;
     height: 128px;
     position: absolute;
@@ -28,21 +28,21 @@ ul {
     flex-direction: row;
 }
 
-.character > .character-token > svg {
+.player > .character-token > svg {
     position: absolute;
     top: 0;
     left: 0;
 }
 
-.character > .character-token {
+.player > .character-token {
     scale: 1;
     transition: scale 0.2s;
     display: block;
 }
-.character > .character-token:hover {
+.player > .character-token:hover {
     scale: 1.2;
 }
-.character > .character-token > .icon-background {
+.player > .character-token > .icon-background {
     position: absolute;
     top: 0;
     left: 0;
@@ -50,7 +50,7 @@ ul {
     height: 128px;
     display: block;
 }
-.character > .character-token > .icon {
+.player > .character-token > .icon {
     position: absolute;
     top: 0;
     left: 0;
@@ -59,11 +59,11 @@ ul {
     display: block;
     rotate: 0deg;
 }
-.character > .character-token > svg > text > textPath {
+.player > .character-token > svg > text > textPath {
     font-size: 20px;
     fill: black;
 }
-.character > .character-token > .player-execution {
+.player > .character-token > .player-execution {
     font-size: 100px;
     color: rgba(185, 191, 203, 0.8);
     position: absolute;
@@ -72,14 +72,14 @@ ul {
     visibility: hidden;
 }
 
-.character > .player-button {
+.player > .player-button {
     position: absolute;
     bottom: -50px;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.character > .player-ability-text {
+.player > .player-ability-text {
     width: 200px;
     height: fit-content;
     font-size: 10px;
@@ -93,12 +93,12 @@ ul {
     visibility: hidden;
     transition: visibility 0.2s;
 }
-.character:hover > .player-ability-text {
+.player:hover > .player-ability-text {
     visibility: visible;
 }
 
 
-.character > .reminders {
+.player > .reminders {
     position: inherit;
     width: 100px;
     height: 100px;
@@ -110,29 +110,29 @@ ul {
     padding-left: 10px;
 }
 
-.character > .reminders > .reminder{
+.player > .reminders > .reminder{
     width: 50px;
     height: 50px;
     align-items: center;
 }
-.character > .reminders > .reminder > .delete-svg {
+.player > .reminders > .reminder > .delete-svg {
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s, opacity 0.2s linear;
 }
 
-.character > .reminders > .reminder:hover > .delete-svg {
+.player > .reminders > .reminder:hover > .delete-svg {
     visibility: visible;
     opacity: 1;
 }
 
-.character > .reminders > .reminder > svg,
-.character > .reminders > .reminder > .reminder-icon {
+.player > .reminders > .reminder > svg,
+.player > .reminders > .reminder > .reminder-icon {
     position: absolute;
     top: 0;
     left: 0;
 }
-.character > .reminders > .reminder > svg > text > textPath {
+.player > .reminders > .reminder > svg > text > textPath {
     fill: black;
     font-size: 15px;
 }
