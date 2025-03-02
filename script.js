@@ -142,14 +142,18 @@ var dialog_change_alivedead = () => {
 }
 
 var dialog_mark_for_execution = () => {
+    var player_name = player_modification_dialog.querySelector("form > h2").innerHTML
+    var player_execution_mark = document.getElementById(player_name).querySelector("i")
+    var set_to = "visible"
+    if (player_execution_mark.style.visibility == "visible") {
+        console.log("Made hidden")
+        set_to = "hidden"
+    }
     document.querySelectorAll(".character").forEach(player => {
         player.querySelector("i").style.visibility = "hidden"
     });
-    // for (element in document.getElementsByClassName("character")) {
-    // }
 
-    var player_name = player_modification_dialog.querySelector("form > h2").innerHTML
-    document.getElementById(player_name).querySelector("i").style.visibility = "visible"
+    player_execution_mark.style.visibility = set_to
 }
 
 
