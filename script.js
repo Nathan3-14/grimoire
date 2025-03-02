@@ -166,5 +166,8 @@ close_dialog_button.onclick = () => {
 
 // TEST PURPOSES ONLY //
 // setup(["imp", "investigator", "poisoner", "drunk", "slayer", "ravenkeeper"])
-setup(["imp", "investigator", "poisoner", "recluse", "slayer", "ravenkeeper", "fortune_teller", "washerwoman"])
 // player_modification_dialog.showModal()
+
+
+
+// setup(["imp", "investigator", "poisoner", "recluse", "slayer", "ravenkeeper", "fortune_teller", "washerwoman"])

@@ -11,8 +11,13 @@
     <div id="radial-grid-adjust">
     </div>
 
-    <!-- <input type="number" id="player-count" placeholder="6"/>
-    <button id="create-grim">Create</button> -->
+    <div id="game-setup-inputs" style="color: white">
+        <label for="new-character-input">New Character:</label>
+        <input type="text" id="new-character-input">
+        <button id="add-new-character-button" onclick="setup_add_character()">Add Character</button>
+        <p>Current Characters: {{charlist}}</p>
+        <button id="create-grim" onclick="start_game()">Create</button>
+    </div>
     <ul class="radial">
     </ul>
     
@@ -93,6 +98,7 @@
     </template>
 
     <script src="script.js"></script>
+    <script src="script_setup.js"></script>
      <!-- <script src="test.js"></script> -->
 </body>
 </html>
