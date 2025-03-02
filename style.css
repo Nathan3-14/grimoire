@@ -79,6 +79,24 @@ ul {
     transform: translate(-50%, -50%);
 }
 
+.character > .player-ability-text {
+    width: 200px;
+    height: fit-content;
+    font-size: 10px;
+    position: absolute;
+    margin: 5px;
+    text-align: center;
+    left: 140px;
+    top: 40px;
+    background-color: wheat;
+    border-radius: 10px;
+    visibility: hidden;
+    transition: visibility 0.2s;
+}
+.character:hover > .player-ability-text {
+    visibility: visible;
+}
+
 
 .character > .reminders {
     position: inherit;
