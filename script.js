@@ -148,11 +148,20 @@ var dialog_mark_for_execution = () => {
         console.log("Made hidden")
         set_to = "hidden"
     }
-    document.querySelectorAll(".character").forEach(player => {
+    document.querySelectorAll(".player").forEach(player => {
         player.querySelector("i").style.visibility = "hidden"
     });
 
     player_execution_mark.style.visibility = set_to
+}
+
+var dialog_change_character = () => {
+    var player_name = player_modification_dialog.querySelector("form > h2").innerHTML
+    var newcharacter_name = player_modification_dialog.querySelector("form > #newcharacter-input").value.toLowerCase()
+    var player = document.getElementById(player_name)
+    player.querySelector("div > .icon").src = urls[newcharacter_name]
+    player.querySelector("div > svg > text > textPath").innerHTML = capitalize(newcharacter_name)
+    player.querySelector(".player-ability-text").innerHTML = abilities[newcharacter_name]
 }
 
 

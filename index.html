@@ -12,11 +12,11 @@
     </div>
 
     <div id="game-setup-inputs" style="color: white">
-        <label for="new-character-input">New Character:</label>
-        <input type="text" id="new-character-input">
-        <button id="add-new-character-button" onclick="setup_add_character()">Add Character</button>
+        <label for="setup-new-character-input">New Character:</label>
+        <input type="text" id="setup-new-character-input">
+        <button id="setup-add-new-character-button" onclick="setup_add_character()">Add Character</button>
         <p>Current Characters: {{charlist}}</p>
-        <button id="create-grim" onclick="start_game()">Create</button>
+        <button id="setup-create-grim" onclick="start_game()">Create</button>
     </div>
     <ul class="radial">
     </ul>
@@ -44,6 +44,10 @@
             <input type="text" id="newname-input" name="newname-input">
             <button onclick="dialog_change_name()">Change Name</button><br>
 
+            <label for="newcharacter-input">New Character:</label>
+            <input type="text" id="newcharacter-input" name="newcharacter-input">
+            <button onclick="dialog_change_character()">Change Character</button><br>
+
             <button onclick="dialog_change_alivedead()">Toggle Alive/Dead</button><br>
             <button onclick="dialog_mark_for_execution()">Mark for Execution</button><br>
             
@@ -54,7 +58,7 @@
 
 
     <template id="character-template">
-        <li class="character">
+        <li class="player">
             <ul class="reminders">
             </ul>
             <div class="character-token">
