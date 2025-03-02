@@ -63,6 +63,14 @@ ul {
     font-size: 20px;
     fill: black;
 }
+.character > .character-token > .player-execution {
+    font-size: 100px;
+    color: rgba(185, 191, 203, 0.8);
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    visibility: hidden;
+}
 
 .character > .player-button {
     position: absolute;
